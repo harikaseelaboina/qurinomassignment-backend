@@ -36,7 +36,7 @@ catch (error) {
 
 //user login
 // Route to handle user login
-router.post('/api/login', async (req, res) => {
+app.post('/api/login', async (req, res) => {
   try {
     const { email, password } = req.body;
 
