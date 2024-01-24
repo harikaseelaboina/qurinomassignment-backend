@@ -5,7 +5,7 @@ const Merchant = require('../Schemas/Merchantschema');
 const app = express();
 
 app.use(express.json());
-
+app.use(cors());
 mongoose.connect('mongodb+srv://harika:harika123@cluster0.n2lfsjh.mongodb.net/?retryWrites=true&w=majority');
 
 app.post('/api/register', async (req, res) => {
