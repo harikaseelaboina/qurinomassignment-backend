@@ -14,6 +14,7 @@ app.post('/create', async (req, res) => {
       const newProduct = new Product({
         productName: req.body.productName,
         category: req.body.category,
+          subcategory: req.body.subcategory,
         price: req.body.price,
         description: req.body.description,
         businessName: req.body.businessName,
