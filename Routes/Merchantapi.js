@@ -37,6 +37,29 @@ app.post('/api/register', async (req, res) => {
   }
 });
 
+
+//  merchant login
+router.post('/api/login', async (req, res) => {
+  try {
+    const { email, password } = req.body;
+
+   
+    const merchant = await Merchant.findOne({ email });
+
+    
+    if (!merchant || merchant.password !== password) {
+      return res.status(401).json({ error: 'Invalid credentials' });
+    }
+
+    
+
+    res.status(200).json({ message: 'Login successful' });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+
 // Get all registered merchants
 app.get('/api/getAll', async (req, res) => {
   try {

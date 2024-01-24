@@ -34,6 +34,25 @@ catch (error) {
   }
 });
 
+//user login
+// Route to handle user login
+router.post('/api/login', async (req, res) => {
+  try {
+    const { email, password } = req.body;
+
+    const user = await User.findOne({ email });
+
+    
+    if (!user || user.password !== password) {
+      return res.status(401).json({ error: 'Invalid credentials' });
+    }
+
+    res.status(200).json({ message: 'Login successful' });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 app.get('/api/getAll', async (req, res) => {
   try {
     const users = await User.find();
