@@ -3,9 +3,9 @@ const merchantRoutes = require('./Routes/Merchantapi.js');
 const userRoutes = require('./Routes/Userapi.js'); 
 const productRoutes=require('./Routes/Productapi.js'); 
 const mongoose = require('mongoose');   
+const cors = require('cors');
 
 const app = express();
-
 app.use(cors());
 app.use(express.json());
 
