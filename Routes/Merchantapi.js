@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const Merchant = require('../Schemas/Merchantschema'); 
+const cors = require('cors');
 
 const app = express();
 
