@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const Product = require('../Schemas/Productschema'); 
 
 const app = express();
-
+app.use(cors());
 app.use(express.json());
 
 mongoose.connect('mongodb+srv://harika:harika123@cluster0.n2lfsjh.mongodb.net/?retryWrites=true&w=majority');
