@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const Product = require('../Schemas/Productschema'); 
+const cors = require('cors');
 
 const app = express();
 app.use(cors());
