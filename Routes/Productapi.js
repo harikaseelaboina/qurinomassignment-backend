@@ -38,7 +38,7 @@ app.get('/getAll', async (req, res) => {
 
 
   // Route to get all products by postedBy field
-app.get('/get/:postedBy', async (req, res) => {
+app.get('/getbypost/:postedBy', async (req, res) => {
     try {
       const productsByPostedBy = await Product.find({ postedBy: req.params.postedBy });
       res.status(200).json(productsByPostedBy);
@@ -48,7 +48,7 @@ app.get('/get/:postedBy', async (req, res) => {
   });
 
 // Route to get all products by businessName
-app.get('/get/:businessName', async (req, res) => {
+app.get('/getbybusiness/:businessName', async (req, res) => {
     try {
       const productsByBusinessName = await Product.find({ businessName: req.params.businessName });
       res.status(200).json(productsByBusinessName);
@@ -58,7 +58,7 @@ app.get('/get/:businessName', async (req, res) => {
   });
 
   // Route to get a product by ID
-app.get('/get/:productId', async (req, res) => {
+app.get('/getbyid/:productId', async (req, res) => {
     try {
       const product = await Product.findById(req.params.productId);
       if (!product) {
