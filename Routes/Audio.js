@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const Audio = require('./'); // Assuming your schema is in audio.js
+const Audio = require('../Schemas/Audioschema.js');
+
 
 // POST API to post data
 router.post('/audio', async (req, res) => {
