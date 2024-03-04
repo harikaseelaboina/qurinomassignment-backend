@@ -24,7 +24,7 @@ mongoose.connect('mongodb+srv://harika:harika123@cluster0.g4ujzs3.mongodb.net/?r
 app.use('/merchants', merchantRoutes);
 app.use('/user', userRoutes); 
 app.use('/product',productRoutes);
-app.use('/audio',audioRoutes);
+app.use('/audioapi',audioRoutes);
 
 const PORT = process.env.PORT || 3000;
 
