@@ -1,10 +1,16 @@
 const express = require('express');
-const router = express.Router();
+
 const Audio = require('../Schemas/Audioschema.js');
+const cors = require('cors');
+
+const app = express();
+
+app.use(express.json());
+app.use(cors());
 
 
 // POST API to post data
-router.post('/audio', async (req, res) => {
+app.post('/audio', async (req, res) => {
   try {
     const audio = new Audio(req.body);
     await audio.save();
@@ -15,7 +21,7 @@ router.post('/audio', async (req, res) => {
 });
 
 // GET API to get all posted data
-router.get('/audio', async (req, res) => {
+app.get('/audio', async (req, res) => {
   try {
     const audios = await Audio.find();
     res.send(audios);
@@ -25,7 +31,7 @@ router.get('/audio', async (req, res) => {
 });
 
 // GET API to get data depending on category
-router.get('/audio/category/:category', async (req, res) => {
+app.get('/audio/category/:category', async (req, res) => {
   try {
     const category = req.params.category;
     const audios = await Audio.find({ category });
@@ -36,7 +42,7 @@ router.get('/audio/category/:category', async (req, res) => {
 });
 
 // GET API to get data depending on agent
-router.get('/audio/agent/:agent', async (req, res) => {
+app.get('/audio/agent/:agent', async (req, res) => {
   try {
     const agent = req.params.agent;
     const audios = await Audio.find({ agent });
@@ -47,7 +53,7 @@ router.get('/audio/agent/:agent', async (req, res) => {
 });
 
 // GET API to get data depending on survey id
-router.get('/audio/surveyId/:surveyId', async (req, res) => {
+app.get('/audio/surveyId/:surveyId', async (req, res) => {
   try {
     const surveyId = req.params.surveyId;
     const audios = await Audio.find({ surveyId });
@@ -58,7 +64,7 @@ router.get('/audio/surveyId/:surveyId', async (req, res) => {
 });
 
 // DELETE API to delete all audios
-router.delete('/audio', async (req, res) => {
+app.delete('/audio', async (req, res) => {
   try {
     await Audio.deleteMany();
     res.send('All audios deleted successfully');
@@ -67,4 +73,4 @@ router.delete('/audio', async (req, res) => {
   }
 });
 
-module.exports = router;
+module.exports = app;
