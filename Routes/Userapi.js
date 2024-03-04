@@ -7,7 +7,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-mongoose.connect('mongodb+srv://harika:harika123@cluster0.n2lfsjh.mongodb.net/?retryWrites=true&w=majority');
+mongoose.connect('mongodb+srv://harika:harika123@cluster0.g4ujzs3.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0');
 
 app.post('/api/register', async (req, res) => {
     try {
