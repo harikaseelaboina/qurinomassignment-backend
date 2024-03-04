@@ -2,6 +2,7 @@ const express = require('express');
 const merchantRoutes = require('./Routes/Merchantapi.js');
 const userRoutes = require('./Routes/Userapi.js'); 
 const productRoutes=require('./Routes/Productapi.js'); 
+const audioRoutes=require('./Routes/Audio.js'); 
 const mongoose = require('mongoose');   
 const cors = require('cors');
 
@@ -23,6 +24,7 @@ mongoose.connect('mongodb+srv://harika:harika123@cluster0.n2lfsjh.mongodb.net/?r
 app.use('/merchants', merchantRoutes);
 app.use('/user', userRoutes); 
 app.use('/product',productRoutes);
+app.use('/audio',audioRoutes);
 
 const PORT = process.env.PORT || 3000;
 
